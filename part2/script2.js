@@ -1,5 +1,5 @@
 function startGame() { 
-    console.log("startGame();")
+    console.log("Game has started!");
 
 var playing = prompt("Do you want to play a game?").toLowerCase();
 var name = null;
@@ -75,8 +75,8 @@ var name = null;
         prompt("Goodbye.");
     }
 
-}
-startGame("");
+} //end of startGame function
+
 
 
 
