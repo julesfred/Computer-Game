@@ -1,4 +1,7 @@
-//function startGame() {
+
+var player = null;
+var enemy = null;
+
 //  var playGame = prompt("Do you want to play?");
 //  if (playGame === "yes") {
 /*    var character = {
@@ -24,42 +27,51 @@
 
     */
 
-
-    
-    var player = {
-      name: "Player",//prompt("Name your character"),
+function startGame(begin) {
+  
+  if (begin === "start"){
+    player = {
+      name: prompt("Hello chosen one! Name your character."),
       health: 40,
       wins: 0,
       healsRemaining: 2,
       generateAttackDamage: function() {
-          return Math.floor(Math.random() * 3) + 1;
+      return Math.floor(Math.random() * 3) + 1;
       },  
       heal: function(){
-          this.healsRemaining --;
-          if (this.healsRemaining === -1) {
-              console.log("You have no more heals left, attack or quit.");
-              startCombat();
-          }
-          return Math.floor(Math.random() * 10) + 1;
-          
+      this.healsRemaining --;
+      if (this.healsRemaining === -1) {
+        //console.log("You have no more heals left, attack or quit.");
+        startCombat();
       }
-  }
-
-  var enemy = {
-    name: "Java the Hut",
-    health: 10,
+      return Math.floor(Math.random() * 10) + 1;
+              
+      }
+    }
+    
+    enemy = {
+      name: "Java the Hut",
+      health: 10,
       generateAttackDamage: function(){
-          return Math.floor(Math.random() * 3) + 1;
+      return Math.floor(Math.random() * 3) + 1;
       }
+    }
+  document.getElementById("start");
+  startCombat();
   }
-  
+}
+   
 
+  
 
 
 
 /*function getDamage() {
   return Math.floor(Math.random() * 5) + 1;
 }*/
+
+
+
 
 function startCombat(choice) {
   
@@ -68,46 +80,77 @@ function startCombat(choice) {
       console.log("You have won the game!");
       return;
     }*/
-    if (player.wins === 5) {
-      console.log("Congratulations! You won the game.");
-    } 
+
+
+  if (player.wins == 5) {
+    //console.log("Congratulations! You won the game.");
+    status = "Congratulations! You defeated Java the Hut! You won the game!!!"
+  }
   
+
     /*if (choice === "attack") {
       enemy.health -= character.generateAttackDamage();
       character.health -= enemy.generateAttackDamage();
       console.log(character.name + " has " + character.health + " health left.");
       console.log(enemy.name + " has " + enemy.health + " health left.");*/
 
-      if (choice === "attack") {
-        console.log("You attacked " + enemy.name + "!!!");
+  if (choice === "attack") {
+    //console.log("You attacked " + enemy.name + "!!!");
 
-        player.health -= player.generateAttackDamage();
-        enemy.health -= enemy.generateAttackDamage();     
+    player.health -= player.generateAttackDamage();
+    enemy.health -= enemy.generateAttackDamage();
+    
+    status = player.name + ", you attacked Java the Hut! Java the Hut Attacked you and your health is now at: " + player.health + ". Java the Huts health is: " + enemy.health;
 
-        console.log(player.name + ", your health is " + player.health);
-        console.log(enemy.name + "'s health is "+ enemy.health); 
+    //console.log(player.name + ", your health is " + player.health);
+    //console.log(enemy.name + "'s health is "+ enemy.health); 
 
-      if (enemy.health <= 0) {
+    if (enemy.health <= 0) {
         player.wins++;
         enemy.health = 10;
-        console.log(player.name + ", you won a battle!!!");
-      }
+        //console.log(player.name + ", you won a battle!!!");
+        status = player.name + ", you won a battle!!!";
+    }
 
-      if (player.health <=0) {
-          console.log("Sorry you lost, the game is over.");
-          playing = false;
-      }
+    if (player.health <=0) {
+        //console.log("Sorry you lost, the game is over.");
+        status = "Sorry " + player.name + " you lost, the game is over nerd.";
+        playing = false;
+    }
 
-      } else if (choice === "heal") {
-      player.health += player.heal();
-      player.health -= enemy.generateAttackDamage();
-        //console.log("Your new health is at " + newHealth);
-      } 
+  } else if (choice === "heal") {
+    player.health += player.heal();
+    player.health -= enemy.generateAttackDamage();
+    //console.log("Your new health is at " + newHealth);
+    status = "You healed! But Java the Hut attacked you. Your health is now at: " + player.health + ". Java the Huts health is at: " + enemy.health;
+  } 
               
-      else {
-          prompt("Goodbye, nerd.");
-          playing = false;
-      } 
+  else if (choice === "quit") {
+    //prompt("Goodbye, nerd.");
+    status = "Goodbye, nerd."
+  } 
+
+
+  if (enemy.health <= 0) {
+    player.wins++;
+    enemy.health = 10;
+    //console.log(name + ", you won a battle!!!");
+    status = player.name + ", you won a battle!!!";
+    
+  }
+
+
+  if (player.health <=0) {
+      //console.log("Sorry you lost, the game is over.");
+      status = "Sorry you lost, the game is over.";
+      playing = false;
+  }
+
+  if (player.wins == 5) {
+    //console.log("Congratulations! You won the game.");
+    status = "Congratulations! You defeated Java the Hut! You won the game!!!"
+  }
+
 
     /*} else if (choice === "quit") {
       return;
@@ -136,20 +179,16 @@ function startCombat(choice) {
         console.log("You have beat " + enemy.name + "! You need to win " + (5 - character.wins) + " more round(s).");
         enemy.health = 10;
       }*/
-      if (enemy.health <= 0) {
-        player.wins++;
-        enemy.health = 10;
-        console.log(name + ", you won a battle!!!");
-      }
 
-      if (player.health <=0) {
-          console.log("Sorry you lost, the game is over.");
-          playing = false;
-      }
 
-      displayInfo ();
+  
+  displayInfo ();
+  statsInfo ();
       
 }
+
+
+
 
 
 
@@ -171,9 +210,8 @@ function startCombat(choice) {
     };
 
     function statsInfo () {
-    var stats 
-
-
+      var gameStats = document.getElementsByClassName("gameStats")[0];
+      gameStats.innerText = status;
     };
-
+ 
 
