@@ -1,0 +1,202 @@
+body {
+    background-color: #BBBBBB;
+}
+
+
+
+.bottomRightCircle {
+    background: #444444;
+    width: 225px;
+    height: 225px;
+    z-index: 0;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: -40%;
+}
+
+.bottomLeftCircle {
+    background: #444444;
+    width: 225px;
+    height: 225px;
+    z-index: 0;
+    border-radius: 50%;
+    position: absolute;
+    left: 30%;
+    top: -40%;
+   
+}
+
+.bottomRectangle {
+    background: #444444;
+    height: 150px;
+    width: 300px;
+    position: absolute;
+    left: 38%;
+    top: -35%;
+}
+
+.cord {
+    background-color: #444444;
+    width: 10px;
+    height: 250px;
+    position: absolute;
+    left: 47%;
+    margin-top: -250px;
+}
+
+
+
+.rightCircle {
+    background: #5E5E5E;
+    width: 225px;
+    height: 225px;
+    z-index: 0;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: -40%;
+    z-index: 10;
+}
+
+.leftCircle {
+    background: #5E5E5E;
+    width: 225px;
+    height: 225px;
+    z-index: 0;
+    border-radius: 50%;
+    position: absolute;
+    left: 30%;
+    top: -40%;
+    z-index: 10;
+}
+
+.rectangle {
+    background: #5E5E5E;
+    height: 150px;
+    width: 300px;
+    position: absolute;
+    left: 38%;
+    top: -35%;
+    z-index: 10;
+}
+
+
+.basetop {
+    display: flex;
+    position: relative;
+    margin-top: -20px;
+}
+
+.base {
+    display: flex;
+    position: relative;
+    margin-top: 200px;
+}
+
+.contain {
+    position: relative;
+    
+}
+
+.contain2 {
+    display: flex;
+    position: relative; 
+    margin-top: 35px;
+}
+
+.vertical {
+    background: #2EB2A0;
+    width: 30px;
+    height: 115px; 
+    border-radius: 10%;
+    position: absolute; 
+    left: 36.5%;
+    z-index: 20;
+    box-shadow: 5px 5px 5px #238576;
+}
+
+.horizontal {
+    background: #2EB2A0;
+    height: 30px;
+    width: 115px; 
+    border-radius: 10%;
+    position: absolute; 
+    left: 33.75%;
+    margin-top: 40px;
+    z-index: 20;
+    box-shadow: 5px 5px 5px #238576;
+}
+
+
+.contain3 {
+    display: flex;
+    position: relative; 
+}
+
+
+.attackButton {
+    background: #DB3A3A;
+    width: 40px;
+    height: 40px;
+    z-index: 30;
+    border-radius: 50%;
+    position: absolute;
+    left: 56.25%;
+    margin-top: 95px;
+    box-shadow: 3px 3px 3px #A32B2B;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.healButton {
+    background: #2EB2A0;
+    width: 40px;
+    height: 40px;
+    z-index: 30;
+    border-radius: 50%;
+    position: absolute;
+    left: 60%;
+    margin-top: 45px;
+    box-shadow: 3px 3px 3px #238576;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.non2 {
+    background: #D9E43D;
+    width: 40px;
+    height: 40px;
+    z-index: 30;
+    border-radius: 50%;
+    position: absolute;
+    left: 56.25%;
+    margin-top: -10px;
+    box-shadow: 3px 3px 3px #B3B933;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.quitButton {
+    background: #9239DB;
+    width: 40px;
+    height: 40px;
+    z-index: 30;
+    border-radius: 50%;
+    position: absolute;
+    left: 52.5%;
+    margin-top: 45px;
+    box-shadow: 3px 3px 3px #712EAC;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.display {
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 270px;
+    margin-left: 660px;
+}
+
+
