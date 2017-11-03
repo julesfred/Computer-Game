@@ -40,12 +40,7 @@ function startGame(begin) {
       },  
       heal: function(){
       this.healsRemaining --;
-      if (this.healsRemaining === -1) {
-        //console.log("You have no more heals left, attack or quit.");
-        startCombat();
-      }
-      return Math.floor(Math.random() * 10) + 1;
-              
+      return Math.floor(Math.random() * 10) + 1;        
       }
     }
     
@@ -121,14 +116,19 @@ function startCombat(choice) {
   } else if (choice === "heal") {
     player.health += player.heal();
     player.health -= enemy.generateAttackDamage();
-    //console.log("Your new health is at " + newHealth);
     status = "You healed! But Java the Hut attacked you. Your health is now at: " + player.health + ". Java the Huts health is at: " + enemy.health;
+    if (player.healsRemaining <= 0) {
+      status = "You have no more heals left, attack or quit.";
+      }
+  
   } 
               
   else if (choice === "quit") {
     //prompt("Goodbye, nerd.");
     status = "Goodbye, nerd."
   } 
+
+
 
 
   if (enemy.health <= 0) {
